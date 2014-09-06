@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DBMovie" representedClassName="DBMovie" syncable="YES">
+        <attribute name="imdbID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userLiked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="userReview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userStars" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="details" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DBMovieDetails" inverseName="movie" inverseEntity="DBMovieDetails" syncable="YES"/>
+        <relationship name="ratings" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DBMovieRatings" inverseName="movie" inverseEntity="DBMovieRatings" syncable="YES"/>
+    </entity>
+    <entity name="DBMovieDetails" representedClassName="DBMovieDetails" syncable="YES">
+        <attribute name="actors" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boxOffice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="director" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dvdDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="poster" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="production" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rated" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="released" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runtime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="trailerURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="writer" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movie" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DBMovie" inverseName="details" inverseEntity="DBMovie" syncable="YES"/>
+    </entity>
+    <entity name="DBMovieRatings" representedClassName="DBMovieRatings" syncable="YES">
+        <attribute name="imdbRating" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="imdbVotes" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="tomatoConsensus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tomatoImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tomatoMeter" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tomatoRating" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tomatoReviews" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tomatoReviewsFresh" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tomatoReviewsRotten" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tomatoUserMeter" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tomatoUserRating" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tomatoUserReviews" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="movie" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DBMovie" inverseName="ratings" inverseEntity="DBMovie" syncable="YES"/>
+    </entity>
     <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="DBMovie" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="DBMovieDetails" positionX="160" positionY="192" width="128" height="300"/>
+        <element name="DBMovieRatings" positionX="160" positionY="192" width="128" height="255"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>
